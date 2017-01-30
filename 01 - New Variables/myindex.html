@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>New Variables</title>
+</head>
+<body>
+	
+
+	<script>
+	// let and const (01)
+
+		var width = 100;
+		console.log(width);
+		width = 200;
+		console.log(width);
+
+
+		let height = 150;
+
+		const key = 'abc123';
+
+		var age = 100;
+		if(age > 12) {
+			var dogYears = age * 7;
+			const dogYears2  = age * 7;
+			console.log(`You are ${dogYears2} dog years old!`);
+		}
+		console.log(dogYears);
+		// console.log(dogYears2);
+
+	// let vs const (02)
+
+		const key2 = 'abc123';
+		let points = 50;
+		points = 60;
+		let winner = false;
+
+		if(points > 40){
+			winner = true;
+		}
+		console.log(winner);
+
+		const person = {
+			name: 'Wes',
+			age: 28,
+		}
+		console.log(person);
+
+		person.name = 'Wesley';
+		person.age = 29;
+		person.job = 'Coder';
+		console.log(person);
+
+		// const wes = Object.freeze(person);
+
+	// let and const in the Real World (03)
+
+		//IFFE
+		(function(){
+			var wesName = 'wes';
+			console.log(wesName);
+		})();
+
+		{
+			const name = 'wes';
+			console.log(name);
+		}
+
+		for(let i = 0; i < 10; i++){
+			console.log(i);
+			setTimeout(function(){
+				console.log(`The number is ${i}`);
+			}, 2000);
+		}
+
+	// temporal dead zone
+
+		console.log(pizza);
+		const pizza = 'Deep dish';
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+	</script>
+</body>
+</html>
