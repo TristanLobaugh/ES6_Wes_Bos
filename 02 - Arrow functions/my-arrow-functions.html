@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Arrow functions → → </title>
+</head>
+<body>
+<script>
+// add bos to end of each element in array using map
+  const names = ['wes', 'kait', 'lux'];
+
+  let fullNames = names.map(name => `${name} bos`);
+
+// if you have no arguments us empty ()
+  fullNames = names.map(() => `cool bos`);
+
+  console.log(fullNames);
+
+// function declaration using arrow function
+  sayMyName = (name => alert(`Hello ${name}`));
+
+  sayMyName('Tristan');
+
+// create object from array using map
+  const race = '100m Dash';
+  const winners = ['Hunter Gath', 'Singa Song', 'Imda Bos'];
+
+  const win = winners.map((runner, i) => ({name: runner, race, place: i + 1}));
+
+  console.table(win);
+
+// create array of all numbers 60 and over
+  const ages = [23,62,45,234,2,62,234,62,34];
+
+  const old = ages.filter(age => age >= 60);
+  console.log(old);
+
+// default function arguments
+  function calcBill(total, tax = 0.13, tip = 0.15 ) {
+    return total + (total * tax) + (total * tip);
+  }
+
+  const totalBill = calcBill(100, undefined, 0.25);
+
+  console.log(totalBill);
+
+</script>
+</body>
+</html>
