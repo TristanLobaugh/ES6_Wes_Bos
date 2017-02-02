@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Destructuring Arrays</title>
+</head>
+<body>
+<script>
+  const details = ['Wes Bos', 123, 'wesbos.com'];
+  
+//Destructuring Arrays
+  const [name, id, website]  = details;
+  console.log(name, id, website);
+
+  const data = 'Basketball,Sports,90210,23,wes,bos,cool';
+  const [itemName, category, sku, inventory] = data.split(',');
+  console.log(itemName, category, sku, inventory);
+
+  const team = ['Wes', 'Harry', 'Sarah', 'Keegan', 'Riker'];
+  const [captain, second, ...restOfTeam] = team;
+  console.log(captain, second, restOfTeam);
+
+//Swapping variables
+	let inRing = 'Hulk Hogan';
+  	let onSide = 'The Rock';	
+
+  	console.log(inRing, onSide);
+	[inRing, onSide] = [onSide, inRing]
+	console.log(inRing, onSide);
+
+//Destructuring in functions
+	function convertCurrency(amount) {
+    const converted = {
+      USD: amount * 0.76,
+      GPB: amount * 0.53,
+      AUD: amount * 1.01,
+      MEX: amount * 13.30
+    };
+    return converted;
+  }
+
+  const hundo = convertCurrency(100);
+  console.log(hundo);
+  const {USD, GPB, AUD, MEX} = convertCurrency(500);
+  console.log(USD, GPB, AUD, MEX);
+  
+ //Destructuring arguments in a function
+  function tipCalc({total, tip = 0.15, tax = 0.07} = {}) {
+  	return total + (tip * total) + (tax * total);
+  }
+
+  console.log(tipCalc({total: 200, tip: .20}));
+
+
+</script>
+</body>
+</html>
