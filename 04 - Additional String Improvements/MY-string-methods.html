@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>New String Methods</title>
+</head>
+<body>
+
+<script>
+const course = 'RFB2';
+const flightNumber = '20-AC2018-jz';
+const accountNumber = '825242631RT0001';
+
+const make = 'BMW';
+const model = 'x5';
+const colour = 'Royal Blue';
+
+// .startsWith()
+
+// .endsWith()
+
+// .includes()
+
+// .repeat()
+
+console.log(`.startsWith - ${course.startsWith('RFB')}`);
+console.log(`.startsWith - ${flightNumber.startsWith('AC', 3)}`); //start at index position 3
+console.log(`.endsWith - ${flightNumber.endsWith('jz')}`);
+console.log(`.endsWith - ${accountNumber.endsWith('RT', 11)}`); //counts only first 11 index positions
+console.log(`.includes - ${accountNumber.includes('RT')}`);
+
+function leftPad(str, length = 20) {
+	return `${' '.repeat(length - str.length)}${str}`;
+}
+
+console.log(leftPad(make));
+console.log(leftPad(model));
+console.log(leftPad(colour));
+
+console.log(`${'make' * 5}`.repeat(10) + ' Batman!');
+</script>
+
+</body>
+</html>
