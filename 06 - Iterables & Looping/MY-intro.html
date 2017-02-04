@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Iterables & Looping</title>
+</head>
+<body>
+
+<p>This is p 01</p>
+<p>This is p 02</p>
+<p>This is p 03</p>
+<p>This is p 04</p>
+<p>This is p 05</p>
+<p>This is p 06</p>
+<p>This is p 07</p>
+<p>This is p 08</p>
+<p>This is p 09</p>
+<p>This is p 10</p>
+
+<script>
+
+  const cuts = ['Chuck', 'Brisket', 'Shank', 'Short Rib'];
+
+//Iterate over Array
+  // for (const [i, cut] of cuts.entries()) {
+  //   console.log(`${cut} is the ${i} item in the array.`);
+  // }
+
+// Iterate over arguments
+  // function addUpNumbers() {
+  //   let total = 0;
+  //   for(const num of arguments) {
+  //     total += num;
+  //   }
+  //   return total;
+  // }
+
+  // console.log(addUpNumbers(10,5,15,29,105,64));
+
+//Iterate over strings
+  // const name = 'Wes Bos';
+  // for(const char of name) {
+  //   console.log(char);
+  // }
+
+//Iterate over nodelist
+  // const p = document.querySelectorAll('p');
+  // for(const paragraph of p) {
+  //   paragraph.addEventListener('click', function(){
+  //     console.log(this.textContent);
+  //   }); 
+  // }
+
+//Types of Loops
+
+//for loop
+  // for (let i = 0; i < cuts.length; i++) {
+  //   console.log(cuts[i]);
+  // }
+
+//.forEach
+  // cuts.forEach((cut) => {
+  //   console.log(cut);
+  //   if(cut === 'Brisket') {
+  //     continue;
+  //   }
+  // });
+
+//for in loop gives just the index
+  // for(const index in cuts) {
+  //   console.log(index);
+  // }
+
+//for of loop
+  for(const cut of cuts){
+    if(cut === 'Shank'){
+      break; //stops loop
+    }
+    else if(cut === 'Chuck'){
+      continue; //skips rest of code to next iteration
+    }
+    console.log(cut);
+  }
+
+
+</script>
+</body>
+</html>
