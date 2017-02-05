@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>The ...Spread Operator</title>
+</head>
+<body>
+
+  <div class="people">
+    <p>Wes</p>
+    <p>Kait</p>
+    <p>Randy</p>
+  </div>
+
+<script>
+
+  const featured = ['Deep Dish', 'Pepperoni', 'Hawaiian'];
+  const specialty = ['Meatzza', 'Spicy Mama', 'Margherita'];
+
+  const pizzas = [...featured, 'Vegitable', ...specialty];
+// to make a copy. not a reference
+  const fridayPizzas = [...pizzas];
+  console.log(pizzas, fridayPizzas);
+
+
+//create array off of property from object
+  const deepDish = {
+    pizzaName: 'Deep Dish',
+    size: 'Medium',
+    ingredients: ['Marinara', 'Italian Sausage', 'Dough', 'Cheese']
+  };
+
+  const shoppingList = ['milk', 'flour', ...deepDish.ingredients];
+  console.log(shoppingList);
+
+
+//instead of using Array.from
+  const people = [...document.querySelectorAll('.people p')];
+  const names = people.map(person => person.textContent);
+  console.log(names);
+
+//remove one object from array and spread 2 arrays back into new comments
+  const comments = [
+    { id: 209384, text: 'I love your dog!' },
+    { id: 523423, text: 'Cuuute! 🐐' },
+    { id: 632429, text: 'You are so dumb' },
+    { id: 192834, text: 'Nice work on this wes!' },
+  ];
+
+  const id = 632429;
+  const commentIndex = comments.findIndex(comment => comment.id === id);
+  console.log(commentIndex);
+  const newComments = [...comments.slice(0, commentIndex), ...comments.slice(commentIndex + 1)];
+  console.log(newComments);
+
+
+//spread into a function
+    const inventors = ['Einstein', 'Newton', 'Galileo'];
+    const newInventors = ['Musk', 'Jobs'];
+
+    inventors.push(...newInventors);
+    console.log(inventors);
+
+    //another example
+    const name = ['Wes', 'Bos'];
+    function sayHi(first, last) {
+      alert(`Hey there ${first} ${last}`);
+    }
+
+    sayHi(...name);
+
+</script>
+</body>
+</html>
