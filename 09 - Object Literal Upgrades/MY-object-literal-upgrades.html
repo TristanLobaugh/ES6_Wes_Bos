@@ -11,7 +11,58 @@
   const age = 2;
   const breed = 'King Charles Cav';
 
-  
+  const dog = {
+    first,
+    last,
+    age,
+    breed,
+    pals: ['Hugo', 'Sunny']
+  };
+// or
+  const dog2 = {first, last, age, breed};
+
+
+//methods in objects
+  const modal = {
+    create: function() {
+      return 'create';
+    },
+  //same as
+    create2() {
+      return 'create2';
+    }
+  };
+
+  console.log(modal.create(), modal.create2());
+
+
+//computed property names
+  const key = 'pocketColor';
+  const value = '#ffc600';
+
+  function invertColor(color) {
+    return '#' + ("000000" + (0xFFFFFF ^ parseInt(color.substring(1),16)).toString(16)).slice(-6);
+  }
+
+  const tShirt = {
+    [key]: value,
+    [`${key}Opposite`]: invertColor(value)
+  };
+
+  console.log(tShirt);
+
+
+  const keys = ['size',  'color', 'weight'];
+  const values = ['medium', 'red', 100];
+
+  const shirt = {
+    [keys.shift()]: values.shift(),
+    [keys.shift()]: values.shift(),
+    [keys.shift()]: values.shift()
+  };
+
+  console.log(shirt);
+
 
 
 </script>
