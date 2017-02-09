@@ -1,4 +1,8 @@
 /* globals twttr ga */
+  //to put globals at top so they will be ignored
+
+/*eslint-disable no-extend-native */
+  //to turn on and off specific rules for the whole file
 
 const weather = new Promise((resolve) => {
   setTimeout(() => {
@@ -33,6 +37,7 @@ ga.track();
 twttr.trackConversion();
 
 /* eslint-disable */
+  //turn off eslint and back on a section within a file
 if (!Array.prototype.includes) {
   Array.prototype.includes = function(searchElement /*, fromIndex*/ ) {
     'use strict';
