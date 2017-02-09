@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Symbols</title>
+</head>
+<body>
+<script>
+  const wes = Symbol('Wes');
+//even though described the same they are not
+  const person = Symbol('Wes');
+
+  console.log(wes === person, wes == person);
+
+//Can not have duplicates
+  // const classRoom1 = {
+  //   'Mark': {grade: 50, gender: 'male'},
+  //   'Olivia': {grade: 80, gender: 'female'},
+  //   'Olivia': {grade: 90, gender: 'female'},
+  // }
+//so write with symbols
+  const classRoom = {
+    [Symbol('Mark')]: {grade: 50, gender: 'male'},
+    [Symbol('Olivia')]: {grade: 80, gender: 'female'},
+    [Symbol('Olivia')]: {grade: 90, gender: 'female'},
+  };
+
+//cannot loop over them but can use get symbols using object method
+  const syms = Object.getOwnPropertySymbols(classRoom);
+// then map over that array
+  const data = syms.map(sym => classRoom[sym]);
+
+  console.log(data);
+
+
+
+
+</script>
+</body>
+</html>
