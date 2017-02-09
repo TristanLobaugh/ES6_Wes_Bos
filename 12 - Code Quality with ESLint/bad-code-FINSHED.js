@@ -1,16 +1,16 @@
 /* globals twttr ga */
-  //to put globals at top so they will be ignored
+  // to put globals at top so they will be ignored
 
-/*eslint-disable no-extend-native */
-  //to turn on and off specific rules for the whole file
+/* eslint-disable no-extend-native */
+  // to turn on and off specific rules for the whole file
 
-const weather = new Promise((resolve) => {
+const weather = new Promise(resolve => {
   setTimeout(() => {
     resolve({ temp: 29, conditions: 'Sunny with Clouds' });
   }, 2000);
 });
 
-const tweets = new Promise((resolve) => {
+const tweets = new Promise(resolve => {
   setTimeout(() => {
     resolve(['I like cake', 'BBQ is good too!']);
   }, 500);
@@ -29,9 +29,7 @@ const streetCarsPromise = fetch('http://data.ratp.fr/api/datasets/1.0/search/?q=
 Promise
   .all([postsPromise, streetCarsPromise])
   .then(responses => Promise.all(responses.map(res => res.json())))
-  .then(responses => {
-    console.log(responses);
-  });
+  .then(responses => console.log(responses));
 
 ga.track();
 twttr.trackConversion();
