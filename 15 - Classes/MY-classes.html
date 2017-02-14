@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Inheritance Review</title>
+</head>
+<body>
+<script>
+// Class declaration
+// usually use this first way over Class expressions
+  class Dog {
+    constructor(name, breed) {
+      this.name = name;
+      this.breed = breed;
+    }
+    bark() {
+      console.log(`Bark Bark! My name is ${this.name}`);
+    }
+    cuddle() {
+      console.log(`I love you owner!`);
+    }
+    //this is a staic method of the Dog class and will not work on individual named Dog classes
+    static info() {
+      console.log('A dog is better than a cat by 10 times!');
+    }
+    get description(){
+      return `${this.name} is a ${this.breed} type of dog.`;
+    }
+    set nicknames(value) {
+      this.nick = value.trim();
+    }
+    get nicknames() {
+      return this.nick;
+    }
+  }
+
+// Class expression
+  const Dog1 = class {
+
+  }
+
+  // function Dog(name, breed) {
+  //   this.name = name;
+  //   this.breed = breed;
+  // }
+
+  // Dog.prototype.bark = function() {
+  //   console.log(`Bark Bark! My name is ${this.name}`);
+  // };
+
+  // Dog.prototype.cuddle = function() {
+  //   console.log(`I love you owner!`);
+  // };
+
+  const snickers = new Dog('Snickers', 'King Charles');
+  const sunny = new Dog('Sunny', 'Golden Doodle');
+
+snickers.bark();
+sunny.cuddle();
+
+</script>
+</body>
+</html>
