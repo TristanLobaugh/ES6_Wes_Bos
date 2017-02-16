@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Generators</title>
+</head>
+<body>
+<script>
+
+function ajax(url) {
+  fetch(url).then(data => data.json()).then(data => dataGen.next(data));
+}
+
+function* steps() {
+  console.log('Fetching Beers:');
+  const beers = yield ajax('http://api.react.beer/v2/search?q=hops&type=beer');
+  console.log(beers);
+
+  console.log('Fetching Wes:');
+  const wes = yield ajax('https://api.github.com/users/tristanlobaugh');
+  console.log(wes);
+
+  console.log('Fetching Fat Joe:');
+  const fatJoe = yield ajax('https://api.discogs.com/artists/51988');
+  console.log(fatJoe);
+  
+  console.log('Finished!');
+}
+
+
+const dataGen = steps();
+//Start the generator
+dataGen.next(); 
+
+</script>
+</body>
+</html>

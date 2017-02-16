@@ -7,13 +7,60 @@
 <body>
 <script>
 
-  function listPeople() {
-    console.log('Wes');
-    console.log('Kait');
-    console.log('Snickers');
+  function* listPeople() {
+    yield 'Wes';
+    yield 'Kait';
+    yield 'Snickers';
   }
 
-listPeople();
+  function* listInt() {
+    let i = 0;
+    yield i;
+    i++;
+    yield i;
+    i++;
+    yield i;
+  }
+
+//call needs to be stored in a variable
+const people = listPeople();
+const ints = listInt();
+
+console.log(ints.next());
+console.log(ints.next());
+console.log(ints.next());
+console.log(ints.next());
+
+
+//itterate throu array using generator
+
+  const inventors = [
+    { first: 'Albert', last: 'Einstein', year: 1879 },
+    { first: 'Isaac', last: 'Newton', year: 1643 },
+    { first: 'Galileo', last: 'Galilei', year: 1564 },
+    { first: 'Marie', last: 'Curie', year: 1867 },
+    { first: 'Johannes', last: 'Kepler', year: 1571 },
+    { first: 'Nicolaus', last: 'Copernicus', year: 1473 },
+    { first: 'Max', last: 'Planck', year: 1858 },
+  ];
+
+  function* loop(arr) {
+    for (const item of arr) {
+      yield item;
+    }
+  }
+
+  const inventorGen = loop(inventors);
+
+  console.log(inventorGen.next());
+  console.log(inventorGen.next());
+  console.log(inventorGen.next());
+  console.log(inventorGen.next());
+  console.log(inventorGen.next());
+  console.log(inventorGen.next());
+  console.log(inventorGen.next());
+  console.log(inventorGen.next());
+  console.log(inventorGen.next());
 
 </script>
 </body>
