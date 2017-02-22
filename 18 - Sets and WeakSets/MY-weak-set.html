@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Weak Sets</title>
+</head>
+<body>
+<script>
+  let dog1 = { name: 'Snickers', age: 3 };
+  let dog2 = { name: 'sunny', age: 1 };
+
+// can only contain objects
+// can not loop over it with for loop
+// no clear method
+  const weakSauce = new WeakSet([dog1, dog2]);
+
+  console.log(weakSauce.has(dog1));
+
+// won't get removed from weakSuace immediately
+  dog1 = null;
+
+  console.log(weakSauce);
+
+</script>
+</body>
+</html>
